@@ -5,6 +5,44 @@
     margin: 0;
 }
 
+/*-------------------------------------------------- ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ ----------------------------------------------------*/
+
+.politika span{
+    font-weight: 700;
+    font-size: 18px;
+    color: black;
+}
+body.politika p, ol{
+    color: #393939;
+}
+.politika span.head{
+    font-size: 28px;
+    font-weight: 800;
+}
+body.politika{
+    margin: 4% 16%;
+    line-height: 25px;
+}
+@media (min-width: 500px) and (max-width: 850px){
+    body.politika{
+        margin: 4% 10%;
+        line-height: 20px;
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 150px) and (max-width: 500px){
+    body.politika{
+        margin: 10% 9%;
+        line-height: 17px;
+        font-size: 12px;
+    }
+    .politika span.head{
+        font-size: 22px;
+    }
+}
+
+/*---------------------------------------------------------------------------------------------------------------------------------*/
 
 .ta-center{
     text-align: center;
@@ -222,13 +260,16 @@ section#about p{
 }
 .info_about{
     padding-top: 20px;
+    position: relative;
 }
 .info_about img:first-of-type{
-    transform: translate(40%, -90%);
+    top: -55px;
+    left: 50px;
 }
 .info_about img:last-of-type{
     rotate: 180deg;
-    transform: translate(-740%, 150%);
+    bottom: 15px;
+    left: 750px;
 }
 .info img.img_person{
     height: 575px;
@@ -563,14 +604,36 @@ body.no-scroll {
 }
 
 /* Стили для всплывающего окна */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+    z-index: 999;
+    display: none; /* Элемент по умолчанию скрыт */
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+    display: block; /* Показать элемент, когда он активен */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Стили для всплывающего окна */
 .popup {
     position: fixed;
     top: 50%;
     left: 50%;
     opacity: 0;
     transform: translate(-50%, -50%) scale(1.25);
-    width: 500px; /* Увеличенный размер */
-    padding: 30px 40px; /* Увеличенные отступы */
+    width: 500px;
+    padding: 30px 40px;
     background: white;
     transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms, transform 20ms ease-in-out 0ms;
     z-index: 1000;
@@ -598,8 +661,7 @@ body.no-scroll {
     text-align: center;
     line-height: 15px;
     border-radius: 15px;
-    cursor: pointer;
-}
+    cursor: pointer;}
 
 /* Стили для формы */
 .popup .form h3 {
@@ -638,6 +700,13 @@ body.no-scroll {
     background: black;
     color: white;
     cursor: pointer;
+}
+
+.popup .form-element.total-price-container {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 .total-price-container {
@@ -726,6 +795,30 @@ input[type="number"]::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
     -moz-appearance: textfield;
+}
+
+/* Стили для сообщения об успехе */
+.success-message {
+    background-color: green;
+    color: white;
+    padding: 50px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    display: none;
+}
+.form-element {
+    margin-bottom: 1em;
+}
+.form-element.error input {
+    border: 1px solid red;
 }
 
 /*-------------------------------------------------------------- АДАПТИВНАЯ ВЕРСТКА ------------------------------------------------------------*/
@@ -870,6 +963,13 @@ input[type="number"] {
     header nav{
         margin-left: 30%;
     }
+
+    .main_wrapper button{
+        font-size: 20px;
+        padding: 2.2% 6%;
+        box-shadow: 0 0.3rem 0.1rem 0 #8b6e33;;
+    }
+
     #about > div > div.item-order-2 > img{
         width: 500px;
         height: auto;
@@ -1025,9 +1125,10 @@ input[type="number"] {
     header nav{
         margin-left: 20%;
     }
-    main button{
-        font-size: 16px;
-        padding: 1.5% 4%;
+    .main_wrapper button{
+        font-size: 18px;
+        padding: 2.5% 6%;
+        box-shadow: 0 0.3rem 0.1rem 0 #8b6e33;;
     }
     #cards > h1{
         font-size: 52px;
@@ -1174,7 +1275,7 @@ input[type="number"] {
         height: 200px;
     }
     section#levels button{
-       padding: 40% 100%;
+    
     }
     section#levels .buttons{
         padding-bottom: 2%;
@@ -1191,6 +1292,11 @@ input[type="number"] {
     }
     header nav{
         margin-left: 20%;
+    }
+    .main_wrapper button{
+        font-size: 16px;
+        padding: 2.3% 5.5%;
+        box-shadow: 0 0.3rem 0.1rem 0 #8b6e33;;
     }
     #cards > h1{
         font-size: 48px;
@@ -1273,6 +1379,7 @@ input[type="number"] {
         text-align: left;
         width: 100vw;
     }
+
     #about > div > div.info_about.item-order-1 > img:nth-child(3){
         transform: translate(-740%, 70%);
     }
@@ -1363,7 +1470,7 @@ input[type="number"] {
     }
 
     section#levels button{
-        padding: 30% 80%;
+       
     }
      section#levels .buttons{
          padding-bottom: 4%;
@@ -1399,8 +1506,10 @@ input[type="number"] {
     header p{
         font-size: 22px;
     }
-    main button{
-        font-size: 10px;
+    .main_wrapper button{
+        font-size: 12px;
+        padding: 2.3% 5.5%;
+        box-shadow: 0 0.2rem 0.1rem 0 #8b6e33;;
     }
     #cards > h1{
         font-size: 38px;
@@ -1524,6 +1633,7 @@ input[type="number"] {
         font-size: 18px;
         padding: 50px 40px;
         margin-left: -20px;
+        width: 300px;   
     }
 
     .levels{
@@ -1558,9 +1668,14 @@ input[type="number"] {
         margin-right: 0;
     }
 
+    /******************************* КНОПКА КУПИТЬ
+
     section#levels button{
-        padding: 30% 80%;
-     }
+       padding: 2rem 5rem;
+    }
+
+    **********************************************/
+
     section#levels .buttons{
          padding-bottom: 5%;
     }
@@ -1628,7 +1743,11 @@ input[type="number"] {
 }
 
 /***************************************************************( 400 - 500 )********************************************************/
-
+@media (min-width: 500px) and (max-width: 550px){
+    footer{
+        font-size: 12px;
+    }
+}
 @media (min-width: 400px) and (max-width: 500px){
     header .header_info{
         margin-left: 20%;
@@ -1643,8 +1762,10 @@ input[type="number"] {
     header nav a{
         font-size: 16px;
     }
-    main button{
-        font-size: 8px;
+    .main_wrapper button{
+        font-size: 10px;
+        padding: 2.3% 5.5%;
+        box-shadow: 0 0.2rem 0.1rem 0 #8b6e33;;
     }
     #cards > h1{
         font-size: 36px;
@@ -1690,22 +1811,21 @@ input[type="number"] {
     .card_wrapper{
         text-align: center;
     }
+    .card_wrapper button{
+        
+    }
 
     .first_button{
         transform: translate(-50%, -140%);
     }
-    #cards > div:nth-child(3) > div > form > button{
-        width: 190px;
-        height: 5%;
+    #cards > div:nth-child(3) > div > form > button,
+    #cards > div.card.d-flex.jc-center > div > form > button{
+        width: 240px; 
+        height: 70px;  
         font-size: 16px;
     }
     .second_button{
         transform: translate(-50%, -140%); 
-    }
-    #cards > div.card.d-flex.jc-center > div > form > button{
-        width: 240px;
-        height: 5%;
-        font-size: 16px;
     }
     .item-order-1{
         order: 2; 
@@ -1792,7 +1912,11 @@ input[type="number"] {
     p.text {
         font-size: 18px;
         padding: 50px 40px;
-        margin-left: -20px;
+
+    }
+    section#about p.text{
+        width: 300px;
+        text-align: left;
     }
 
     .levels{
@@ -1832,7 +1956,7 @@ input[type="number"] {
     }
 
     section#levels button{
-        padding: 30% 80%;
+       
     }
     section#levels .buttons{
          padding-bottom: 5%;
@@ -1850,27 +1974,39 @@ input[type="number"] {
     .reviews img{
         width: 250px;
     }
+   
 
-    footer{
-        width: 100%; 
-        height: 140px;
-        box-sizing: border-box;
-        background-color: #252C3F;
-        color: white;
-        padding-top: 30px;  
-        font-size: 12px;
-        text-align: center;
-        display: block;
-    }
-    .footer_wrapper p{
-        padding-top: 12px;
-    }
-    .footer_wrapper a img{
-        width: 60px;
-    }
-    .documents p a{
-        color: white;
-    }
+        footer {
+            height: 300px;  
+        }
+        
+        .footer_wrapper {
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center;
+            text-align: center; 
+        }
+        .footer_wrapper p{
+            padding: 5px;
+        }
+        .documents {
+            order: 2; 
+            margin-top: 6%;
+        }
+        
+        .inn {
+            order: 3; 
+        }
+    
+        .footer_wrapper a img {
+            width: 80px;
+            margin: 10px 0; 
+        }
+    
+        .footer_wrapper a img {
+            position: relative; 
+            align-self: center; 
+        }
 
     h1{
         color: #586587;
@@ -1900,7 +2036,7 @@ input[type="number"] {
 @media (min-width: 300px) and (max-width: 400px){
     
     header .header_info{
-        margin-left: 5%;
+        margin-left: 15%;
         width: 100%;
     }
     header nav{
@@ -1917,8 +2053,10 @@ input[type="number"] {
         margin-right: 15%;
         font-size: 15px;
     }
-    main button{
-        font-size: 8px;
+    .main_wrapper button{
+        font-size: 9px;
+        padding: 2.3% 5%;
+        box-shadow: 0 0.12rem 0.1rem 0 #8b6e33;;
     }
     #cards > h1{
         font-size: 34px;
@@ -1981,12 +2119,12 @@ input[type="number"] {
     .second_button{
         transform: translate(-50%, -145%); 
     }
+    #cards > div:nth-child(3) > div > form > button,
     #cards > div.card.d-flex.jc-center > div > form > button{
-        width: 240px;
-        height: 4.5%;
+        width: 200px; 
+        height: 60px;  
         font-size: 14px;
     }
-
     .item-order-1{
         order: 2; 
     }
@@ -2072,7 +2210,16 @@ input[type="number"] {
     p.text {
         font-size: 18px;
         padding: 50px 40px;
-        margin-left: -20px;
+        width: 300px;
+    }
+
+    section#about p.text{
+        width: 300px;
+        text-align: left;
+    }
+
+    .info_2 p.text {
+        width: 300px;
     }
 
     .levels{
@@ -2109,7 +2256,7 @@ input[type="number"] {
     }
 
     section#levels button{
-        padding: 30% 80%;
+        box-shadow: 0 0.4rem 0.15rem 0 #8b6e33;
     }
     section#levels .buttons{
          padding-bottom: 4%;
@@ -2130,25 +2277,38 @@ input[type="number"] {
         width: 175px;
     }
 
-    footer{
-        width: 100%; 
-        height: 140px;
-        box-sizing: border-box;
-        background-color: #252C3F;
-        color: white;
-        padding-top: 30px;  
-        font-size: 10px;
-        text-align: center;
+    footer {
+        height: 300px; /* Увеличиваем высоту футера */
+    }
+    
+    .footer_wrapper {
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center;
+        text-align: center; 
     }
     .footer_wrapper p{
-        padding-top: 12px;
+        padding: 5px;
     }
-    .footer_wrapper a img{
-        width: 60px;
+    .documents {
+        order: 2; 
+        margin-top: 6%;
     }
-    .documents p a{
-        color: white;
+    
+    .inn {
+        order: 3; 
     }
+
+    .footer_wrapper a img {
+        width: 80px;
+        margin: 10px 0; 
+    }
+
+    .footer_wrapper a img {
+        position: relative; 
+        align-self: center; 
+    }
+
 
     h1{
         color: #586587;
@@ -2179,7 +2339,7 @@ input[type="number"] {
 @media (max-width: 300px) {
     
     header .header_info{
-        margin-left: 5%;
+        margin-left: 15%;
         width: 100%;
     }
     header nav{
@@ -2241,26 +2401,18 @@ input[type="number"] {
     .card_wrapper{
         text-align: center;
     }
-
-    .card_wrapper button {
+    #cards > div:nth-child(3) > div > form > button,
+    #cards > div.card.d-flex.jc-center > div > form > button{
+        width: 180px; 
+        height: 60px;  
         font-size: 12px;
     }
 
     .first_button{
         transform: translate(-50%, -145%);
     }
-    #cards > div:nth-child(3) > div > form > button{
-        width: 170px;
-        height: 4%;
-        font-size: 12px;
-    }
     .second_button{
         transform: translate(-50%, -145%); 
-    }
-    #cards > div.card.d-flex.jc-center > div > form > button{
-        width: 200px;
-        height: 4%;
-        font-size: 12px;
     }
 
     .item-order-1{
@@ -2383,12 +2535,11 @@ input[type="number"] {
         margin-right: 0;
         width: 350px;
     }
-
     section#levels button{
-        padding: 30% 80%;
+        box-shadow: 0 0.4rem 0.15rem 0 #8b6e33;
     }
-     section#levels .buttons{
-         padding-bottom: 7%;
+    section#levels .buttons{
+        padding-bottom: 7%;
     }
 
     .info_2 .portret {
@@ -2405,26 +2556,38 @@ input[type="number"] {
     .reviews img{
         width: 175px;
     }
-
-    footer{
-        width: 100%; 
-        height: 140px;
-        box-sizing: border-box;
-        background-color: #252C3F;
-        color: white;
-        padding-top: 30px;  
-        font-size: 10px;
-        text-align: center;
+    footer {
+        height: 300px; /* Увеличиваем высоту футера */
+    }
+    
+    .footer_wrapper {
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center;
+        text-align: center; 
     }
     .footer_wrapper p{
-        padding-top: 12px;
+        padding: 5px;
     }
-    .footer_wrapper a img{
-        width: 60px;
+    .documents {
+        order: 2; 
+        margin-top: 6%;
     }
-    .documents p a{
-        color: white;
+    
+    .inn {
+        order: 3; 
     }
+
+    .footer_wrapper a img {
+        width: 80px;
+        margin: 10px 0; 
+    }
+
+    .footer_wrapper a img {
+        position: relative; 
+        align-self: center; 
+    }
+
 
     h1{
         color: #586587;

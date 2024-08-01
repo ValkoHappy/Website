@@ -138,7 +138,7 @@
         <div class="info_2 d-flex jc-center">
             <img src="image/irina_2.jpg" alt="" class="portret">
 
-            <div class="information" style="margin: 60px 0 100px 20px; ">
+            <div class="information" style="margin: 60px 0 100px 20px;">
                 <img src="image/quotes.png" alt="" class="quotes">
                 <p class="text">Много чего еще <span>мы познаем</span>, но нет задачи накачать вас
                 новыми знаниями. Они, безусловно, у вас появятся.<br><br>
@@ -255,10 +255,10 @@
                 <p>ИНН 290219830220</p>
                 <p>ОГРНИП 318290100049082</p>
             </div>
-            <a href="https://t.me/ugriumova"><img src="image/original.png" alt=""></a>
+            <a href="https://t.me/ugriumova" target="_blank"><img src="image/original.png" alt=""></a>
             <div class="documents d-block">
                 <p><a href="https://cloud.mail.ru/public/xTuq/wF1u2YmAT" target="_blank">Договор оферты</a><br></p>
-                <p><a href="">Политика конфиденциальности</a></p>
+                <p><a href="politika.html" target="_blank">Политика конфиденциальности</a></p>
             </div>
         </div>
     </footer>
@@ -273,8 +273,9 @@
 
     <div class="popup" id="popup">
         <div class="close-btn" onclick="closePopup()">&times;</div>
-        <div class="form">
+        <div class="form" id="form-container">
             <h3>Ваш заказ:</h3>
+
             <div class="order-list" id="order-list"></div> <!-- Место для отображения заказов -->
     
             <div class="form-element" id="form-element">
@@ -283,8 +284,8 @@
             </div>
     
             <div class="form-element">
-                <label for="email">ВАШ EMAIL</label>
-                <input type="email" id="email" placeholder="pochta@mail.ru">
+                <label for="tg">ВАШ TELEGRAM</label>
+                <input type="text" id="tg" placeholder="@user">
             </div>
     
             <div class="form-element">
@@ -315,6 +316,53 @@
     
 </script>
 <script>
+    
+document.addEventListener('DOMContentLoaded', () => {
+    const phoneInput = document.getElementById('phone');
+    
+    phoneInput.addEventListener('input', (event) => {
+        // Удаляем все символы, кроме цифр
+        const onlyDigits = event.target.value.replace(/\D/g, '');
+        
+        // Форматируем номер телефона
+        let formattedNumber = '';
+        if (onlyDigits.length > 0) {
+            formattedNumber += '+7 ';
+            if (onlyDigits.length > 1) {
+                formattedNumber += `(${onlyDigits.slice(1, 4)}`;
+            }
+            if (onlyDigits.length > 4) {
+                formattedNumber += `) ${onlyDigits.slice(4, 7)}`;
+            }
+            if (onlyDigits.length > 7) {
+                formattedNumber += `-${onlyDigits.slice(7, 9)}`;
+            }
+            if (onlyDigits.length > 9) {
+                formattedNumber += `-${onlyDigits.slice(9, 11)}`;
+            }
+        }
+        
+        // Обновляем значение поля
+        event.target.value = formattedNumber;
+    });
+});
+
+        const tgInput = document.getElementById('tg');
+
+        // Убедимся, что поле ввода начинается с '@'
+        tgInput.addEventListener('focus', function() {
+        if (tgInput.value === '') {
+        tgInput.value = '@'; // Добавляем '@' при фокусе, если поле пустое
+        }
+        });
+
+        // Предотвращаем удаление '@' при вводе
+        tgInput.addEventListener('input', function() {
+        if (tgInput.value.charAt(0) !== '@') {
+        tgInput.value = '@' + tgInput.value.replace(/^@/, ''); // Сохраняем '@' в начале
+        }
+        });
+
     let currentIndex = 0;
 
     function moveSlide(direction) {
@@ -553,35 +601,24 @@ function closePopup() {
     document.body.classList.remove('no-scroll');
 }
 
-// Load cart and render it when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    cart = loadCartFromLocalStorage();
-    renderCart();
-});
-
 document.getElementById("submit-button").addEventListener("click", function(event) {
-    event.preventDefault(); // Отменяем стандартное поведение кнопки
+    event.preventDefault(); // Prevent default button behavior
 
-    // Собираем данные из формы
+    // Gather data from the form
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const phone = document.getElementById("phone").value;
     const totalPrice = document.getElementById("total-price").textContent;
 
-    // Собираем содержимое из списка заказов
+    // Gather the contents from the order list
     const orderItems = Array.from(document.querySelectorAll('#order-list .order-item')).map(item => {
         const itemName = item.querySelector('.item-name').textContent;
         const itemPrice = item.querySelector('.item-price').textContent;
         const itemQuantity = item.querySelector('.item-quantity input').value;
-
-        console.log(itemName, itemPrice, itemQuantity);  // Выводим значения для отладки
-
         return `${itemName} - ${itemPrice} (количество: ${itemQuantity})`;
     }).join('\n');
 
-    console.log(orderItems);  // Выводим финальную строку
-
-    // Формируем данные для отправки
+    // Form the data for sending
     const templateParams = {
         name: name,
         email: email,
@@ -590,17 +627,118 @@ document.getElementById("submit-button").addEventListener("click", function(even
         orderItems: orderItems
     };
 
-    console.log(templateParams.orderItems);
-
-    // Отправляем данные через EmailJS
+    // Send the data through EmailJS
     emailjs.send("service_7qmoite", "template_aqtr0lc", templateParams)
         .then(function(response) {
-            alert('Сообщение успешно отправлено!');
-            closePopup(); // Закрыть попап после успешной отправки
+            // Disable and clear form elements
+            disableAndClearFormElements();
+            
+            // Clear the cart
+            clearCart();
+            
+            // Display success message
+            displaySuccessMessage();
         }, function(error) {
             alert('Ошибка при отправке: ' + JSON.stringify(error));
         });
 });
+
+// Function to disable and clear form elements
+function disableAndClearFormElements() {
+    const formElements = document.querySelectorAll('.form-element input');
+    formElements.forEach(element => {
+        element.value = ''; // Clear the value
+        element.disabled = true; // Disable the input
+    });
+    document.getElementById("total-price").textContent = '0'; // Reset total price
+}
+
+// Function to clear the cart
+function clearCart() {
+    cart = {}; // Reset the cart object
+    renderCart(); // Re-render the cart to reflect changes
+    saveCartToLocalStorage(); // Save the empty cart to localStorage
+}
+
+// Function to display success message
+function displaySuccessMessage() {
+    const formElement = document.getElementById('form-container');
+    formElement.innerHTML = `
+        <div class="success-message">
+            Ваши данные успешно отправлены, в ближайшее время с вами свяжется менеджер проекта.
+        </div>
+    `;
+}
+
+// Function to close the popup and reset form
+function closePopup() {
+    document.getElementById('popup').classList.remove('active');
+    document.getElementById('overlay').classList.remove('active');
+    document.body.classList.remove('no-scroll');
+    resetForm(); // Reset form when the popup is closed
+}
+
+// Function to reset the form elements
+function resetForm() {
+    const formElement = document.getElementById('form-container');
+    formElement.innerHTML = `
+        <h3>Ваш заказ:</h3>
+        <div class="order-list" id="order-list"></div> <!-- Место для отображения заказов -->
+    
+        <div class="form-element">
+            <label for="name">ВАШИ ФИО</label>
+            <input type="text" id="name" placeholder="Иванов Иван Иванович">
+        </div>
+    
+        <div class="form-element">
+            <label for="email">ВАШ EMAIL</label>
+            <input type="email" id="email" placeholder="pochta@mail.ru">
+        </div>
+    
+        <div class="form-element">
+            <label for="phone">ВАШ ТЕЛЕФОН</label>
+            <input type="tel" id="phone" placeholder="+7 (999) 999-99-99">
+        </div>
+    
+        <div class="form-element total-price-container">
+            Общая стоимость: <span id="total-price">0</span> руб.
+        </div>
+    
+        <div class="form-element">
+            <button id="submit-button">Отправить данные</button>
+        </div>
+    `;
+
+    // Re-attach event listener to the new submit button
+    document.getElementById("submit-button").addEventListener("click", function(event) {
+        event.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const totalPrice = document.getElementById("total-price").textContent;
+        const orderItems = Array.from(document.querySelectorAll('#order-list .order-item')).map(item => {
+            const itemName = item.querySelector('.item-name').textContent;
+            const itemPrice = item.querySelector('.item-price').textContent;
+            const itemQuantity = item.querySelector('.item-quantity input').value;
+            return `${itemName} - ${itemPrice} (количество: ${itemQuantity})`;
+        }).join('\n');
+        const templateParams = {
+            name: name,
+            email: email,
+            phone: phone,
+            totalPrice: totalPrice,
+            orderItems: orderItems
+        };
+        emailjs.send("service_7qmoite", "template_aqtr0lc", templateParams)
+            .then(function(response) {
+                disableAndClearFormElements();
+                clearCart();
+                displaySuccessMessage();
+            }, function(error) {
+                alert('Ошибка при отправке: ' + JSON.stringify(error));
+            });
+    });
+}
 
 // Ensure you load and render the cart items when the page loads
 document.addEventListener('DOMContentLoaded', () => {
