@@ -107,7 +107,7 @@ main{
 main button{
     position: absolute;
     margin: 7% 0 0 2.5%;
-    padding: 1.5% 5%;
+    padding: 3% 5%;
     font-size: large;
     font-weight: 600;
 }
@@ -207,10 +207,6 @@ section#about img{
 section#about h1{
     margin: 20px 30px;
 }
-section#about p.text{
-    width: 800px;
-    text-align: left;
-}
 img.quotes{
     width: 100px;
     height: 80px;
@@ -228,7 +224,7 @@ section#about p{
 }
 .info_about img:last-of-type{
     rotate: 180deg;
-    transform: translate(-740%, 150%);
+    transform: translate(-710%, 150%);
 }
 .info img.img_person{
     height: 575px;
@@ -298,6 +294,7 @@ p.chair{
 
 .info_2 p{
     position: relative;
+
     padding: 70px 120px 70px 60px;
 }
 .info_2 img.quotes{
@@ -308,15 +305,12 @@ p.chair{
 .info_2 .portret{
     width: 380px;
     height: 550px;
-    padding-right: 2%;
 }
 
 section .info_2 img{
-    margin-top: 25px ;
+    margin-top: 25px;
 } 
-.info_2 p.text{
-    width: 600px;
-}
+
 .info_2 .information img:first-of-type{
     transform: translate(40%, -90%);
 }
@@ -324,7 +318,6 @@ section .info_2 img{
     rotate: 180deg;
     transform: translate(-650%, 75%);
 }
-
 .info img.img_person{
     height: 575px;
     margin-left: 50px;
@@ -363,7 +356,7 @@ section#levels h3{
     background-color: #252c3f;
 }
 .general{
-    width: 400px;
+    width: 350px;
     height: auto;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -373,7 +366,7 @@ section#levels h3{
     height: 360px;
 }
 .general ul li{
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
 }
 
@@ -390,13 +383,15 @@ section#levels p{
 }
 
 section#levels button{
-    padding: 40% 80%;
+    width: 250px;
+    height: 100px;
     border-radius: 50px;
     font-size: 18px;
     font-weight: 600;
 }
 section#levels .buttons {
-   padding-right: 120px;
+
+    width: 250px;
 }
 
 .levels{
@@ -407,7 +402,7 @@ section#levels .buttons {
 
 section#question h2{
     font-size: 30px;
-    margin-top: 100px; 
+    margin-top: 130px; 
 }
 
 section#question{
@@ -426,7 +421,7 @@ section#question h2{
  /*------------------------------------------------------------- ОТЗЫВЫ --------------------------------------------------------------*/
 
 section#reviews {
-    height: 650px;
+    height: 700px;
 }
 .slider {
     position: relative;
@@ -674,16 +669,13 @@ body.no-scroll {
     background: none;
     border: 1px solid #aaa;
     border-radius: 50px;
-    width: 20px;
-    height: 20px;
     font-size: 16px;
     cursor: pointer;
-    margin: 0 20px;
-    color: #aaa;   
+    margin: 0 5px;
 }
 
 .order-item .item-quantity input {
-    width: 20px;
+    width: 30px;
     text-align: center;
     border: none;
     border-radius: 5px;
@@ -704,15 +696,13 @@ body.no-scroll {
 }
 
 .undo-notification .undo-btn{
-    border: none;
-    background-color: white;
-    color: #7d7d7d;
+
     padding: 5px 10px; /* Padding inside the button */
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s; /* Smooth background color transition */
 }
 .line-text{
-    color: #7d7d7d;
+    color: #aaa;
 }
 
 
@@ -729,8 +719,6 @@ input[type="number"] {
 }
 
 /*-------------------------------------------------------------- АДАПТИВНАЯ ВЕРСТКА ------------------------------------------------------------*/
-
-/************************************************************( 1480 - 1350 )********************************************************/
 
 @media (max-width: 1480px) and (min-width: 1350px){
     header nav{
@@ -859,8 +847,6 @@ input[type="number"] {
     } */
 }
 
-/***************************************************************( 1350 - 1100 )********************************************************/
-
 @media  (max-width: 1350px) and (min-width: 1100px) {
     header .header_info{
         margin-left: 60%;
@@ -870,21 +856,6 @@ input[type="number"] {
     header nav{
         margin-left: 30%;
     }
-    #about > div > div.item-order-2 > img{
-        width: 500px;
-        height: auto;
-    }
-    #about > div > div.info_about.item-order-1 > p{
-        text-align: left;
-    }
-    #about > div > div.info_about.item-order-1 > img:nth-child(3){
-        transform: translate(-740%, 70%);
-    }
-    .info_2 .portret {
-        width: 500px;
-        height: auto;
-    }
-   
     /* .card{
         flex-direction: column;
         align-items: center;
@@ -999,23 +970,16 @@ input[type="number"] {
         flex-direction: column; 
         align-items: center; 
     } */
-     
-    .general ul{
-        height: 500px;
-        padding: 30px;
-    }
 
-    .general{
-        width: 27vw;
-        height: auto;
-    } 
+    /* .general{
+        margin-right: 0;
+    } */
 
     /* section#levels .buttons{
         padding: 2% 0 5% 0;
     } */
 }
 
-/***************************************************************( 1100 - 850 )********************************************************/
 
 @media (max-width: 1100px) and (min-width: 850px){
     header .header_info{
@@ -1025,31 +989,14 @@ input[type="number"] {
     header nav{
         margin-left: 20%;
     }
-    main button{
-        font-size: 16px;
-        padding: 1.5% 4%;
-    }
-    #cards > h1{
-        font-size: 52px;
-    }
-    #cards > h1 > span{
-        font-size: 30px;
-    }
     .card{
         flex-direction: column;
         align-items: center;
     }
-    #cards > div:nth-child(3) > div > img{
-        width: 600px;
-        height: 100%;
-    }
+
     section#cards img {
         margin-right: 0%;
         margin-bottom: 2%;
-    }
-    #cards > div.card.d-flex.jc-center > div > img{
-        width: 600px;
-        height: 100%;
     }
 
     section#cards img.text{
@@ -1065,11 +1012,11 @@ input[type="number"] {
     }
 
     .first_button{
-        transform: translate(-50%, -150%);
+        transform: translate(-50%, -130%);
     }
     
     .second_button{
-        transform: translate(-50%, -150%); 
+        transform: translate(-50%, -130%); 
     }
 
     .item-order-1{
@@ -1093,21 +1040,7 @@ input[type="number"] {
         height: 575px;
         margin-left: 0;
     }
-     .info_2 .portret {
-        width: 400px;
-        height: auto;
-    }
-    #about > div > div.item-order-2 > img{
-        width: 500px;
-        height: auto;
-    }
-    #about > div > div.info_about.item-order-1 > p{
-        text-align: left;
-    }
-    #about > div > div.info_about.item-order-1 > img:nth-child(3){
-        transform: translate(-740%, 70%);
-    }
-    
+
     .skills .top{
         flex-direction: column;
         align-items: center;
@@ -1170,19 +1103,11 @@ input[type="number"] {
     .general{
         margin-right: 0;
     }
-    .level_basic ul {
-        height: 200px;
-    }
-    section#levels button{
-       padding: 40% 100%;
-    }
-    section#levels .buttons{
-        padding-bottom: 2%;
 
+    section#levels .buttons{
+        padding: 2% 0 5% 0;
     }
 }
-
-/***************************************************************( 600 - 850 )********************************************************/
 
 @media (min-width: 600px) and (max-width: 850px){
     header .header_info{
@@ -1192,31 +1117,20 @@ input[type="number"] {
     header nav{
         margin-left: 20%;
     }
-    #cards > h1{
-        font-size: 48px;
-    }
-    #cards > h1 > span{
-        font-size: 28px;
-    }
     .card{
         flex-direction: column;
         align-items: center;
     }
-    #cards > div:nth-child(3) > div > img{
-        width: 500px;
-        height: 100%;
-    }
-    section#cards img.text{
-        width: 500px;
-        height: 100%;
-    }
-    #cards > div.card.d-flex.jc-center > div > img{
-        width: 500px;
-        height: 100%;
-    }
-     section#cards img {
+
+    section#cards img {
         margin-right: 0%;
         margin-bottom: 2%;
+    }
+
+    section#cards img.text{
+        width: 600px;
+        height: 650px;
+
     }
 
     section#cards .img-margin{
@@ -1262,20 +1176,6 @@ input[type="number"] {
         margin-left: 0;
         margin-bottom: 30px;
     }
-    #about > div > div.info_about.item-order-1 > img:nth-child(3){
-        transform: translate(-620%, 90%);
-    }
-    #about > div > div.info_about.item-order-1 > p{
-        text-align: left;
-        width: 100vw;
-    }
-    .info_about p.text{
-        text-align: left;
-        width: 100vw;
-    }
-    #about > div > div.info_about.item-order-1 > img:nth-child(3){
-        transform: translate(-740%, 70%);
-    }
 
     .skills .top{
         flex-direction: column;
@@ -1293,29 +1193,21 @@ input[type="number"] {
     }
 
     .info_about img:first-of-type{
-        width: 80px;
-        height: 70px;
-        transform: translate(110%, -90%);
+        transform: translate(40%, -90%);
     }
-    #about > div > div.info_about.item-order-1 > img:nth-child(3){
+    .info_about img:last-of-type{
         rotate: 180deg;
-        width: 80px;
-        height: 70px;
-        transform: translate(-960%, 75%);
+        transform: translate(-465%, 75%);
     }
 
     .info_2{
         flex-direction: column;
         align-items: center;
     }
-    
-    .info_2 .information img:first-of-type{
-        transform: translate(70%, -80%);
-    }
 
     .info_2 .information img:last-of-type{
         rotate: 180deg;
-        transform: translate(-550%, 75%);
+        transform: translate(-450%, 75%);
     }
 
     section#about p:first-of-type {
@@ -1327,9 +1219,9 @@ input[type="number"] {
     p.text {
         font-size: 20px;
         padding: 50px 40px;
-        margin-left: 40px;
+        margin-left: -20px;
     }
-    
+
     .levels{
         display: block;
         flex-direction: column;
@@ -1341,9 +1233,6 @@ input[type="number"] {
         display: flex; 
         flex-direction: column;
         align-items: center; 
-    }
-    .level_basic ul {
-        height: 200px;
     }
 
     .level_standart{
@@ -1362,51 +1251,18 @@ input[type="number"] {
         margin-right: 0;
     }
 
-    section#levels button{
-        padding: 30% 80%;
+    section#levels .buttons{
+        padding: 2% 0 5% 0;
     }
-     section#levels .buttons{
-         padding-bottom: 4%;
-    }
-    #question > div > form > button{
-        width: 250px;
-        height: 80px;
-    }
-    #reviews > div > h1{
-        margin: 60px 0 0 10px;
-    }
-    .arrow {
-        top: 40%;
-    }
-    
 }
 
-/************************************************************************************************************************************/
-
-/***************************************************************( 500 - 600 )********************************************************/
-
-@media (min-width: 500px) and (max-width: 600px){
+@media (min-width: 600px) and (max-width: 850px){
     header .header_info{
         margin-left: 20%;
         width: 100%;
     }
     header nav{
         margin-left: 20%;
-    }
-    header a{
-        font-size: 18px;
-    }
-    header p{
-        font-size: 22px;
-    }
-    main button{
-        font-size: 10px;
-    }
-    #cards > h1{
-        font-size: 38px;
-    }
-    #cards > h1 > span{
-        font-size: 24px;
     }
     .card{
         flex-direction: column;
@@ -1417,22 +1273,13 @@ input[type="number"] {
         margin-right: 0%;
         margin-bottom: 2%;
     }
-    #cards > div:nth-child(3) > div > img{
-        width: 450px;
-        height: auto;
-    }
+
     section#cards img.text{
-        width: 450px;
-        height: auto;
+        width: 600px;
+        height: 650px;
+
     }
-    #cards > div.card.d-flex.jc-center > div > img{
-        width: 450px;
-        height: 100%;
-    }
-    section#cards img {
-        position: relative;
-        height: 500px;
-    }
+
     section#cards .img-margin{
         margin-right: 0px;
     }
@@ -1444,7 +1291,159 @@ input[type="number"] {
     .first_button{
         transform: translate(-50%, -130%);
     }
-   
+    
+    .second_button{
+        transform: translate(-50%, -130%); 
+    }
+
+    .item-order-1{
+        order: 2; 
+    }
+
+    .item-order-2{
+        order: 1;
+    }
+
+    .info{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info_about img:last-of-type{
+        rotate: 180deg;
+        transform: translate(600%, 70%);
+    }
+
+    section#about img {
+        margin-top: 25px;
+    }
+
+    .info img.img_person {
+        height: 575px;
+        margin-left: 0;
+        margin-bottom: 30px;
+    }
+
+    .skills .top{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .skills .bottom{
+        flex-direction: column;
+        align-items: center;
+        padding-top: 0;
+    }
+
+    .skill{
+        padding: 0 0 80px 0;
+    }
+
+    .info_about img:first-of-type{
+        transform: translate(40%, -90%);
+    }
+    .info_about img:last-of-type{
+        rotate: 180deg;
+        transform: translate(-465%, 75%);
+    }
+
+    .info_2{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info_2 .information img:last-of-type{
+        rotate: 180deg;
+        transform: translate(-450%, 75%);
+    }
+
+    section#about p:first-of-type {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    p.text {
+        font-size: 20px;
+        padding: 50px 40px;
+        margin-left: -20px;
+    }
+
+    .levels{
+        display: block;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .level_basic{
+        display: flex; 
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .level_standart{
+        display: flex; 
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .level_premium{
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .general{
+        margin-right: 0;
+    }
+
+    section#levels .buttons{
+        padding: 2% 0 5% 0;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 600px){
+    header .header_info{
+        margin-left: 20%;
+        width: 100%;
+    }
+    header nav{
+        margin-left: 20%;
+    }
+    .card{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section#cards img {
+        margin-right: 0%;
+        margin-bottom: 2%;
+    }
+
+    section#cards img.text{
+        width: 400px;
+        height: auto;
+    }
+
+    
+section#cards img {
+    position: relative;
+    height: 500px;
+}
+
+    section#cards .img-margin{
+        margin-right: 0px;
+    }
+
+    .card_wrapper{
+        text-align: center;
+    }
+
+    .first_button{
+        transform: translate(-50%, -130%);
+    }
+    
     .second_button{
         transform: translate(-50%, -130%); 
     }
@@ -1538,9 +1537,6 @@ input[type="number"] {
         flex-direction: column;
         align-items: center; 
     }
-    .level_basic ul {
-        height: 200px;
-    }
 
     .level_standart{
         display: flex; 
@@ -1558,76 +1554,57 @@ input[type="number"] {
         margin-right: 0;
     }
 
-    section#levels button{
-        padding: 30% 80%;
-     }
     section#levels .buttons{
-         padding-bottom: 5%;
+        padding: 2% 0 5% 0;
     }
 
-    .slider {
-        width: 400px;
-    }
-
-    .reviews img{
-        width: 300px;
-    }
-
-    footer{
-        width: 100%; 
-        height: 140px;
-        box-sizing: border-box;
-        background-color: #252C3F;
-        color: white;
-        padding-top: 30px;  
-        font-size: 14px;
-        text-align: center;
-    }
-    .footer_wrapper p{
-        padding-top: 15px;
-    }
-    .footer_wrapper a img{
-        width: 60px;
-    }
-    .documents p a{
-        color: white;
-    }
-
-    h1{
-        color: #586587;
-        font-size: 44px;
-        text-align: center;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-
-    h2{
-        color: #586587;
-        font-size: 28px;
-        text-align: center;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-
-    #skills_wrapper h2{
-        margin-top: 60px;
-    }
-    #question > div > form > button{
-        width: 250px;
-        height: 80px;
-    }
-    #reviews{
-        
-    }
-    #reviews > div > h1{
-        margin: 40px 0 0 10px;
-    }
-    .arrow {
-        top: 35%;
-    }
-    .arrow.right { right: -10px; }
-    .arrow.left { right: 370px; }
+.slider {
+    width: 400px;
 }
 
-/***************************************************************( 400 - 500 )********************************************************/
+.reviews img{
+    width: 300px;
+}
+
+footer{
+    width: 100%; 
+    height: 140px;
+    box-sizing: border-box;
+    background-color: #252C3F;
+    color: white;
+    padding-top: 30px;  
+    font-size: 14px;
+    text-align: center;
+}
+.footer_wrapper p{
+    padding-top: 15px;
+}
+.footer_wrapper a img{
+    width: 60px;
+}
+.documents p a{
+    color: white;
+}
+
+h1{
+    color: #586587;
+    font-size: 44px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h2{
+    color: #586587;
+    font-size: 28px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#skills_wrapper h2{
+    margin-top: 60px;
+}
+
+}
 
 @media (min-width: 400px) and (max-width: 500px){
     header .header_info{
@@ -1637,51 +1614,26 @@ input[type="number"] {
     header nav{
         margin-left: 20%;
     }
-    header p{
-        font-size: 18px;
-    }
-    header nav a{
-        font-size: 16px;
-    }
-    main button{
-        font-size: 8px;
-    }
-    #cards > h1{
-        font-size: 36px;
-        padding-bottom: 2%;
-    }
-    #cards > h1 > span{
-        font-size: 22px;
-    }
     .card{
         flex-direction: column;
         align-items: center;
-    }
-    section#cards h2{
-        font-size: 25px;
     }
 
     section#cards img {
         margin-right: 0%;
         margin-bottom: 2%;
     }
-    #cards > div:nth-child(3) > div > img{
-        width: 350px;
-        height: auto;
-    }
+
     section#cards img.text{
         width: 350px;
         height: auto;
     }
-    #cards > div.card.d-flex.jc-center > div > img{
-        width: 350px;
-        height: 100%;
-    }
 
-    section#cards img {
-        position: relative;
-        height: 450px;
-    }
+    
+section#cards img {
+    position: relative;
+    height: 450px;
+}
 
     section#cards .img-margin{
         margin-right: 0px;
@@ -1692,21 +1644,13 @@ input[type="number"] {
     }
 
     .first_button{
-        transform: translate(-50%, -140%);
+        transform: translate(-50%, -130%);
     }
-    #cards > div:nth-child(3) > div > form > button{
-        width: 190px;
-        height: 5%;
-        font-size: 16px;
-    }
+    
     .second_button{
-        transform: translate(-50%, -140%); 
+        transform: translate(-50%, -130%); 
     }
-    #cards > div.card.d-flex.jc-center > div > form > button{
-        width: 240px;
-        height: 5%;
-        font-size: 16px;
-    }
+
     .item-order-1{
         order: 2; 
     }
@@ -1807,12 +1751,6 @@ input[type="number"] {
         flex-direction: column;
         align-items: center; 
     }
-    .level_basic ul {
-        height: 200px;
-    }
-    .level_basic ul {
-        height: 200px;
-    }
 
     .level_standart{
         display: flex; 
@@ -1828,14 +1766,11 @@ input[type="number"] {
 
     .general{
         margin-right: 0;
-        width: 350px;
+        width: 300px;
     }
 
-    section#levels button{
-        padding: 30% 80%;
-    }
     section#levels .buttons{
-         padding-bottom: 5%;
+        padding: 2% 0 5% 0;
     }
 
     .info_2 .portret {
@@ -1843,59 +1778,54 @@ input[type="number"] {
         height: auto;
     }
 
-    .slider {
-        width: 350px;
-    }
-
-    .reviews img{
-        width: 250px;
-    }
-
-    footer{
-        width: 100%; 
-        height: 140px;
-        box-sizing: border-box;
-        background-color: #252C3F;
-        color: white;
-        padding-top: 30px;  
-        font-size: 12px;
-        text-align: center;
-        display: block;
-    }
-    .footer_wrapper p{
-        padding-top: 12px;
-    }
-    .footer_wrapper a img{
-        width: 60px;
-    }
-    .documents p a{
-        color: white;
-    }
-
-    h1{
-        color: #586587;
-        font-size: 36px;
-        text-align: center;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-
-    h2{
-        color: #586587;
-        font-size: 28px;
-        text-align: center;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-
-    #skills_wrapper h2{
-        margin-top: 60px;
-    }
-    #question > div > form > button{
-        width: 250px;
-        height: 80px;
-    }
+.slider {
+    width: 350px;
 }
 
-/***************************************************************( 300 - 400 )********************************************************/
+.reviews img{
+    width: 250px;
+}
+
+footer{
+    width: 100%; 
+    height: 140px;
+    box-sizing: border-box;
+    background-color: #252C3F;
+    color: white;
+    padding-top: 30px;  
+    font-size: 12px;
+    text-align: center;
+}
+.footer_wrapper p{
+    padding-top: 12px;
+}
+.footer_wrapper a img{
+    width: 60px;
+}
+.documents p a{
+    color: white;
+}
+
+h1{
+    color: #586587;
+    font-size: 36px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h2{
+    color: #586587;
+    font-size: 28px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#skills_wrapper h2{
+    margin-top: 60px;
+}
+
+}
+
 
 @media (min-width: 300px) and (max-width: 400px){
     
@@ -1906,334 +1836,34 @@ input[type="number"] {
     header nav{
         margin-left: 5%;
     }
-    header p{
-        font-size: 17px;
-    }
-    #header > header > div > nav{
-        padding-left: 15%;
-    }
+
     header a{
         color: black;
         margin-right: 15%;
         font-size: 15px;
     }
-    main button{
-        font-size: 8px;
-    }
-    #cards > h1{
-        font-size: 34px;
-        padding-bottom: 2%;
-    }
-    #cards > h1 > span{
-        font-size: 20px;
-    }
     .card{
         flex-direction: column;
         align-items: center;
     }
-    section#cards h2{
-        font-size: 22px;
-    }
+
     section#cards img {
         margin-right: 0%;
         margin-bottom: 2%;
     }
 
-    #cards > div:nth-child(3) > div > img{
-        width: 300px;
-        height: auto;
-    }
     section#cards img.text{
-        width: 300px;
-        height: auto;
-    }
-    #cards > div.card.d-flex.jc-center > div > img{
-        width: 300px;
-        height: 100%;
-    }
-    
-    section#cards img {
-        position: relative;
         width: 250px;
         height: auto;
     }
 
-    section#cards .img-margin{
-        margin-right: 0px;
-    }
-
-    .card_wrapper{
-        text-align: center;
-    }
-
-    .card_wrapper button {
-        font-size: 12px;
-    }
-
-    .first_button{
-        transform: translate(-50%, -145%);
-    }
-    #cards > div:nth-child(3) > div > form > button{
-        width: 190px;
-        height: 4%;
-        font-size: 14px;
-    }
-    .second_button{
-        transform: translate(-50%, -145%); 
-    }
-    #cards > div.card.d-flex.jc-center > div > form > button{
-        width: 240px;
-        height: 4.5%;
-        font-size: 14px;
-    }
-
-    .item-order-1{
-        order: 2; 
-    }
-
-    .item-order-2{
-        order: 1;
-    }
-
-    .info{
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .info_about img:last-of-type{
-        rotate: 180deg;
-        transform: translate(600%, 70%);
-    }
-
-    section#about img {
-        margin-top: 25px;
-    }
-
-    .info img.img_person {
-        height: 500px;
-        margin-left: 0;
-        margin-bottom: 30px;
-    }
-
-    .skills .top{
-        flex-direction: column;
-        align-items: center;
-    }
     
-    .skills .bottom{
-        flex-direction: column;
-        align-items: center;
-        padding-top: 0;
-    }
-
-    .skill{
-        padding: 0 0 80px 0;
-    }
-
-    .info_about img:first-of-type{
-        transform: translate(40%, -90%);
-    }
-    .info_about img:last-of-type{
-        rotate: 180deg;
-        transform: translate(-250%, 75%);
-    }
-
-    .info_2{
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .info_2 .information img:first-of-type{
-        transform: translate(20%, -90%);
-    }
-
-    .info_2 .information img:last-of-type{
-        rotate: 180deg;
-        transform: translate(-225%, 75%);
-    }
-
-    section#about p:first-of-type {
-        font-size: 18px;
-        text-align: center;
-        margin-bottom: 0;
-    }
-
-    p.chair {
-        background: linear-gradient(180deg, #DDE7FF 0%, #EBF1FF 35%, #F9FAFE 100%);
-        width: 200px;
-        height: 160px;
-        border-radius: 0 20px 0 20px;
-        padding: 25px;
-        font-size: 18px;
-        line-height: 25px;
-        font-weight: 100;
-    }
-
-    p.text {
-        font-size: 18px;
-        padding: 50px 40px;
-        margin-left: -20px;
-    }
-
-    .levels{
-        display: block;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .level_basic{
-        display: flex; 
-        flex-direction: column;
-        align-items: center; 
-    }
-    .level_basic ul {
-        height: 200px;
-    }
-
-    .level_standart{
-        display: flex; 
-        flex-direction: column;
-        align-items: center; 
-    }
-
-    .level_premium{
-        display: flex;
-        flex-direction: column; 
-        align-items: center; 
-    }
-
-    .general{
-        margin-right: 0;
-        width: 350px;
-    }
-
-    section#levels button{
-        padding: 30% 80%;
-    }
-    section#levels .buttons{
-         padding-bottom: 4%;
-    }
-    .info_2 .portret {
-        width: 250px;
-        height: auto;
-    }
-    section#question h2{
-        font-size: 26px;
-    }
-
-    .slider {
-        width: 300px;
-    }
-
-    .reviews img{
-        width: 175px;
-    }
-
-    footer{
-        width: 100%; 
-        height: 140px;
-        box-sizing: border-box;
-        background-color: #252C3F;
-        color: white;
-        padding-top: 30px;  
-        font-size: 10px;
-        text-align: center;
-    }
-    .footer_wrapper p{
-        padding-top: 12px;
-    }
-    .footer_wrapper a img{
-        width: 60px;
-    }
-    .documents p a{
-        color: white;
-    }
-
-    h1{
-        color: #586587;
-        font-size: 36px;
-        text-align: center;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-
-    h2{
-        color: #586587;
-        font-size: 22px;
-        text-align: center;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-
-    #skills_wrapper h2{
-        margin-top: 60px;
-    }
-    #question > div > form > button{
-        width: 220px;
-        height: 70px;
-    }
-    
+section#cards img {
+    position: relative;
+    width: 250px;
+    height: auto;
 }
 
-/*********************************************************( 200 - 300 )*************************************************************/
-
-@media (min-width: 200px) and (max-width: 300px){
-    
-    header .header_info{
-        margin-left: 5%;
-        width: 100%;
-    }
-    header nav{
-        margin-left: 5%;
-    }
-    header p{
-        font-size: 17px;
-    }
-    #header > header > div > nav{
-        padding-left: 15%;
-    }
-    header a{
-        color: black;
-        margin-right: 15%;
-        font-size: 15px;
-    }
-    main button{
-        font-size: 8px;
-    }
-    #cards > h1{
-        font-size: 34px;
-    }
-    #cards > h1 > span{
-        font-size: 20px;
-    }
-    .card{
-        flex-direction: column;
-        align-items: center;
-    }
-
-    section#cards img {
-        margin-right: 0%;
-        margin-bottom: 2%;
-    }
-
-    #cards > div:nth-child(3) > div > img{
-        width: 300px;
-        height: auto;
-    }
-    section#cards img.text{
-        width: 300px;
-        height: auto;
-    }
-    #cards > div.card.d-flex.jc-center > div > img{
-        width: 300px;
-        height: 100%;
-    }
-    
-    section#cards img {
-        position: relative;
-        width: 250px;
-        height: auto;
-    }
-
     section#cards .img-margin{
         margin-right: 0px;
     }
@@ -2247,20 +1877,13 @@ input[type="number"] {
     }
 
     .first_button{
-        transform: translate(-50%, -145%);
-    }
-    #cards > div:nth-child(3) > div > form > button{
         width: 170px;
-        height: 4%;
-        font-size: 12px;
+        transform: translate(-50%, -130%);
+
     }
+    
     .second_button{
-        transform: translate(-50%, -145%); 
-    }
-    #cards > div.card.d-flex.jc-center > div > form > button{
-        width: 200px;
-        height: 4%;
-        font-size: 12px;
+        transform: translate(-50%, -130%); 
     }
 
     .item-order-1{
@@ -2363,9 +1986,6 @@ input[type="number"] {
         flex-direction: column;
         align-items: center; 
     }
-    .level_basic ul {
-        height: 200px;
-    }
 
     .level_standart{
         display: flex; 
@@ -2381,71 +2001,62 @@ input[type="number"] {
 
     .general{
         margin-right: 0;
-        width: 350px;
+        width: 250px;
     }
 
-    section#levels button{
-        padding: 30% 80%;
-    }
-     section#levels .buttons{
-         padding-bottom: 7%;
+    section#levels .buttons{
+        padding: 2% 0 5% 0;
     }
 
     .info_2 .portret {
         width: 250px;
         height: auto;
     }
-    section#question h2{
-        font-size: 26px;
-    }
-    .slider {
-        width: 300px;
-    }
 
-    .reviews img{
-        width: 175px;
-    }
+.slider {
+    width: 300px;
+}
 
-    footer{
-        width: 100%; 
-        height: 140px;
-        box-sizing: border-box;
-        background-color: #252C3F;
-        color: white;
-        padding-top: 30px;  
-        font-size: 10px;
-        text-align: center;
-    }
-    .footer_wrapper p{
-        padding-top: 12px;
-    }
-    .footer_wrapper a img{
-        width: 60px;
-    }
-    .documents p a{
-        color: white;
-    }
+.reviews img{
+    width: 175px;
+}
 
-    h1{
-        color: #586587;
-        font-size: 36px;
-        text-align: center;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
+footer{
+    width: 100%; 
+    height: 140px;
+    box-sizing: border-box;
+    background-color: #252C3F;
+    color: white;
+    padding-top: 30px;  
+    font-size: 10px;
+    text-align: center;
+}
+.footer_wrapper p{
+    padding-top: 12px;
+}
+.footer_wrapper a img{
+    width: 60px;
+}
+.documents p a{
+    color: white;
+}
 
-    h2{
-        color: #586587;
-        font-size: 22px;
-        text-align: center;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
+h1{
+    color: #586587;
+    font-size: 36px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
-    #skills_wrapper h2{
-        margin-top: 60px;
-    }
-    #question > div > form > button{
-        width: 220px;
-        height: 70px;
-    }
+h2{
+    color: #586587;
+    font-size: 22px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#skills_wrapper h2{
+    margin-top: 60px;
+}
 }
 
