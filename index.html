@@ -317,35 +317,60 @@
 </script>
 <script>
     
-document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
     const phoneInput = document.getElementById('phone');
-    
-    phoneInput.addEventListener('input', (event) => {
+
+    function formatPhoneNumber(value) {
         // Удаляем все символы, кроме цифр
-        const onlyDigits = event.target.value.replace(/\D/g, '');
+        value = value.replace(/\D/g, '');
         
-        // Форматируем номер телефона
-        let formattedNumber = '';
-        if (onlyDigits.length > 0) {
-            formattedNumber += '+7 ';
-            if (onlyDigits.length > 1) {
-                formattedNumber += `(${onlyDigits.slice(1, 4)}`;
-            }
-            if (onlyDigits.length > 4) {
-                formattedNumber += `) ${onlyDigits.slice(4, 7)}`;
-            }
-            if (onlyDigits.length > 7) {
-                formattedNumber += `-${onlyDigits.slice(7, 9)}`;
-            }
-            if (onlyDigits.length > 9) {
-                formattedNumber += `-${onlyDigits.slice(9, 11)}`;
-            }
+        // Ограничиваем количество цифр до 10
+        if (value.length > 10) {
+            value = value.slice(0, 10);
         }
-      
-        // Обновляем значение поля
-        event.target.value = formattedNumber;
+
+        // Формируем форматированный номер
+        let formattedNumber = '+7 ';
+        if (value.length > 1) {
+            formattedNumber += `(${value.slice(1, 4)}`;
+        }
+        if (value.length >= 4) {
+            formattedNumber += `) ${value.slice(4, 7)}`;
+        }
+        if (value.length >= 7) {
+            formattedNumber += `-${value.slice(7, 9)}`;
+        }
+        if (value.length >= 9) {
+            formattedNumber += `-${value.slice(9, 11)}`;
+        }
+
+        return formattedNumber;
+    }
+
+    phoneInput.addEventListener('input', (event) => {
+        // Форматируем номер телефона
+        event.target.value = formatPhoneNumber(event.target.value);
     });
-}); 
+
+    phoneInput.addEventListener('keydown', (event) => {
+        // Разрешаем только цифры и управляющие клавиши
+        const allowedKeys = ['Backspace', 'ArrowLeft', 'ArrowRight', 'Delete', 'Tab'];
+        if (!/\d/.test(event.key) && !allowedKeys.includes(event.key)) {
+            event.preventDefault();
+        }
+    });
+
+    phoneInput.addEventListener('blur', (event) => {
+        // Приводим номер к формату при потере фокуса
+        event.target.value = formatPhoneNumber(event.target.value);
+    });
+
+    phoneInput.addEventListener('focus', (event) => {
+        // Если поле в фокусе, удаляем все нецифровые символы, чтобы избежать артефактов формата
+        event.target.value = event.target.value.replace(/\D/g, '');
+    });
+});
+
         const tgInput = document.getElementById('tg');
 
         // Убедимся, что поле ввода начинается с '@'
