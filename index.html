@@ -138,7 +138,7 @@
         <div class="info_2 d-flex jc-center">
             <img src="image/irina_2.jpg" alt="" class="portret">
 
-            <div class="information" style="margin: 60px 0 100px 20px; ">
+            <div class="information" style="margin: 60px 0 100px 20px;">
                 <img src="image/quotes.png" alt="" class="quotes">
                 <p class="text">Много чего еще <span>мы познаем</span>, но нет задачи накачать вас
                 новыми знаниями. Они, безусловно, у вас появятся.<br><br>
@@ -255,10 +255,10 @@
                 <p>ИНН 290219830220</p>
                 <p>ОГРНИП 318290100049082</p>
             </div>
-            <a href="https://t.me/ugriumova"><img src="image/original.png" alt=""></a>
+            <a href="https://t.me/ugriumova" target="_blank"><img src="image/original.png" alt=""></a>
             <div class="documents d-block">
                 <p><a href="https://cloud.mail.ru/public/xTuq/wF1u2YmAT" target="_blank">Договор оферты</a><br></p>
-                <p><a href="">Политика конфиденциальности</a></p>
+                <p><a href="politika.html" target="_blank">Политика конфиденциальности</a></p>
             </div>
         </div>
     </footer>
@@ -284,8 +284,8 @@
             </div>
     
             <div class="form-element">
-                <label for="email">ВАШ EMAIL</label>
-                <input type="email" id="email" placeholder="pochta@mail.ru">
+                <label for="tg">ВАШ TELEGRAM</label>
+                <input type="text" id="tg" placeholder="@user">
             </div>
     
             <div class="form-element">
@@ -346,6 +346,22 @@ document.addEventListener('DOMContentLoaded', () => {
         event.target.value = formattedNumber;
     });
 });
+
+        const tgInput = document.getElementById('tg');
+
+        // Убедимся, что поле ввода начинается с '@'
+        tgInput.addEventListener('focus', function() {
+        if (tgInput.value === '') {
+        tgInput.value = '@'; // Добавляем '@' при фокусе, если поле пустое
+        }
+        });
+
+        // Предотвращаем удаление '@' при вводе
+        tgInput.addEventListener('input', function() {
+        if (tgInput.value.charAt(0) !== '@') {
+        tgInput.value = '@' + tgInput.value.replace(/^@/, ''); // Сохраняем '@' в начале
+        }
+        });
 
     let currentIndex = 0;
 
