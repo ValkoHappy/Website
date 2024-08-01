@@ -431,7 +431,7 @@ section#levels p{
 }
 
 section#levels button{
-    padding: 1rem 3rem;
+    padding: 2rem 4rem;
     border-radius: 50px;
     font-size: 18px;
     font-weight: 600;
@@ -467,7 +467,7 @@ section#question h2{
  /*------------------------------------------------------------- ОТЗЫВЫ --------------------------------------------------------------*/
 
 section#reviews {
-    height: 650px;
+    margin-bottom: 3%;
 }
 .slider {
     position: relative;
@@ -1681,11 +1681,28 @@ input[type="number"] {
     }
 
     .slider {
-        width: 400px;
+        width: 90vw;
+    }
+    #reviews > div > div.arrow.left.ta-center{
+        left: 15px;
+    }
+    #reviews > div > div.arrow.right.ta-center{
+        right: 5px;
+    }
+    #reviews > div{
+        margin-top: 10%;
     }
 
     .reviews img{
         width: 300px;
+        margin-top: 5%;
+    }
+    #reviews > div > div.arrow.left.ta-center{
+        transform: translateY(200%);
+    }
+    #reviews > div > div.arrow.right.ta-center{
+        right: 5px;
+        transform: translateY(200%);
     }
 
     footer{
@@ -1967,11 +1984,28 @@ input[type="number"] {
     }
 
     .slider {
-        width: 350px;
+        width: 90vw;
+    }
+    .reviews img{
+        width: 250px;
+    }
+    #reviews > div > div.arrow.left.ta-center{
+        transform: translateY(70%);
+    }
+    #reviews > div > div.arrow.right.ta-center{
+        right: 5px;
+        transform: translateY(70%);
+    }
+    #reviews > div{
+        margin-top: 5%;
     }
 
     .reviews img{
-        width: 250px;
+        width: 270px;
+        margin-top: 1%;
+    }
+    #reviews > div > h1 {
+        margin-top: 70px;
     }
    
 
@@ -2270,11 +2304,40 @@ input[type="number"] {
     }
 
     .slider {
-        width: 300px;
+        width: 90vw;
+    }
+    .reviews img{
+        width: 250px;
+    }
+    #reviews > div > div.arrow.left.ta-center{
+        transform: translateY(100%);
+        width: 40px;
+        height: 40px;
+    }
+    #reviews > div > div.arrow.right.ta-center{
+        right: 5px;
+        width: 40px;
+        height: 40px;
+        transform: translateY(100%);
+    }
+    #reviews > div{
+        margin-top: 5%;
     }
 
     .reviews img{
-        width: 175px;
+        width: 300px;
+        margin-top: 1%;
+    }
+    #reviews > div > h1 {
+        margin-top: 70px;
+    }
+    .arrow svg{
+        padding-top: 5px;
+    }
+    .reviews img,
+    #reviews > div > div.reviews.d-flex.ta-center > div:nth-child(11) > img,
+    #reviews > div > div.reviews.d-flex.ta-center > div:nth-child(6) > img{
+        width: 200px;
     }
 
     footer {
