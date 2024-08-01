@@ -871,6 +871,7 @@ input[type="number"] {
         border-radius: 15px;
         cursor: pointer;
         display: block;
+        z-index: 1001;
     }
 
     #form-container.form{
